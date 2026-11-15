@@ -1,12 +1,12 @@
 """Run the whole pipeline: tracking in, submission CSV out.
 
-    python -m src.run                                  # writes outputs/submission.csv
-    python -m src.run --out outputs/team_name.csv
+    python3 -m src.run                                  # writes outputs/submission.csv
+    python3 -m src.run --out outputs/team_name.csv
 
 Then check and score it with the official tooling:
 
-    python evaluation/validate_submission.py outputs/submission.csv
-    python evaluation/run_evaluation.py --results outputs --gt public
+    python3 evaluation/validate_submission.py outputs/submission.csv
+    python3 evaluation/run_evaluation.py --results outputs --gt public
 
 Reading the raw ATD takes a minute or two -- it streams 199319 lines of tracking.
 """
@@ -58,8 +58,8 @@ def run(game=GAME, data_dir=None, out_path=DEFAULT_OUT):
     print(f"\nwrote {os.path.relpath(path, src.ROOT)}")
     print("  " + "  ".join(f"{k} {v:>7}" for k, v in counts.items()))
     print("\nNext:")
-    print(f"  python evaluation/validate_submission.py {os.path.relpath(path)}")
-    print(f"  python evaluation/run_evaluation.py --results {os.path.relpath(os.path.dirname(path))} --gt public")
+    print(f"  python3 evaluation/validate_submission.py {os.path.relpath(path)}")
+    print(f"  python3 evaluation/run_evaluation.py --results {os.path.relpath(os.path.dirname(path))} --gt public")
     return labels
 
 
